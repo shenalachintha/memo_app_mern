@@ -1,13 +1,14 @@
 import React from "react";
-import post from './Post/post.js';
+import Post from "./Post/Post.js";
+
 const Posts=()=>{
     return(
         <div>
             <>
              <h1>Posts Component</h1>
-            <post/>
-            <post/>
-            <post/>
+            <Post/>
+            <Post/>
+            <Post/>
             </>
            
         </div>
