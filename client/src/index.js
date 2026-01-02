@@ -14,7 +14,7 @@ const store=createStore(
 
 
 ReactDOM.render(
-    <provider>
+    <provider store={store}>
      <App />
     </provider>,  
     document.getElementById("root")
