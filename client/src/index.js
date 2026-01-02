@@ -12,7 +12,10 @@ const store=createStore(
     compose(applyMiddleware(thunk))
 );
 
+
 ReactDOM.render(
-        <App />,
+    <provider>
+     <App />
+    </provider>,  
     document.getElementById("root")
 );
