@@ -6,7 +6,8 @@ const Post=({post})=>{
     const classes=useStyles();
     return(
        <Card className={classes.card} > 
-         <CardMedia className={classes.cardMedia} image={post.selectedFile} title={post.title} />
+         {/* Use styled media class so the image has height */}
+         <CardMedia className={classes.media} image={post.selectedFile} title={post.title} />
             <div className={classes.overlay}>
                 <Typography variant="h6">{post.creator}</Typography>
                 <Typography variant="body2">{new Date(post.createdAt).toDateString()}</Typography>
