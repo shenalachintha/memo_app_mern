@@ -1,4 +1,5 @@
-import PostMessage from "../models/postMessage";    
+// Explicit .js extension required for ESM imports in Node
+import PostMessage from "../models/postMessage.js";    
 
 const getposts =  async (req, res) => {
     try {
