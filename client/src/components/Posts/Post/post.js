@@ -1,8 +1,8 @@
-import React, { use } from "react";
+import React from "react";
 import { Card,CardActions,CardContent,CardMedia,Button,Typography } from "@material-ui/core";
 import {ThumbUpAlt,Delete,MoreHoriz} from "@material-ui/icons";
 import useStyles from "./styles.js";
-const Post=({post})=>{
+const Post=({post,setCurrentId})=>{
     const classes=useStyles();
     return(
        <Card className={classes.card} > 
@@ -14,7 +14,9 @@ const Post=({post})=>{
             </div>
             <div className={classes.overlay2}>
                 <Button style={{color:'white'}} size="small" >
-                    <MoreHoriz fontSize="default" onClick={() => {}} />
+                    <MoreHoriz fontSize="default" onClick={() => {
+                        setCurrentId(post._id);
+                    }} />
                 </Button>
             </div>
             <div className={classes.details}>
