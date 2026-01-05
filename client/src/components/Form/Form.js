@@ -4,7 +4,7 @@ import { TextField,Button,Typography,Paper } from "@material-ui/core";
 import FileBase from 'react-file-base64';
 import { useDispatch } from "react-redux";
 import { createPost } from "../../actions/posts.js";
-const Form=()=>{
+const Form=({ currentId, setCurrentId })=>{
     const classes=Usestyles();
     const dispatch=useDispatch();
     const handleSubmit=(e)=>{
