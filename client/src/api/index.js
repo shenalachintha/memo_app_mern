@@ -3,3 +3,4 @@ const url='http://localhost:5000/posts';
 const fetchPosts=()=>axios.get(url);
 export {fetchPosts};
 export const createPost=(newPost)=>axios.post(url,newPost);
+export const updatePost=(id,updatedPost)=>axios.patch(`${url}/${id}`,updatedPost);
