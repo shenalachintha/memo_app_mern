@@ -26,11 +26,13 @@ const Form=({ currentId, setCurrentId })=>{
         } else {
             dispatch(createPost(postData));
         }
-       
+        clear();
     }
 
 
     const clear=()=>{
+        setPostData({ creator:'',title:'',message:'',tags:'',selectedFile:'' });
+        setCurrentId(null);
     }
  
     return(
