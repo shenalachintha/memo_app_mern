@@ -4,6 +4,7 @@ import {ThumbUpAlt,Delete,MoreHoriz} from "@material-ui/icons";
 import useStyles from "./styles.js";
 import { useDispatch } from "react-redux";
 import { deletePost } from "../../../actions/posts.js";
+import { likePost } from "../../../actions/posts.js";
 const Post=({post,setCurrentId})=>{
     const classes=useStyles();
     const dispatch=useDispatch();
@@ -30,7 +31,9 @@ const Post=({post,setCurrentId})=>{
                 <Typography variant="body2" color="textSecondary" component="p">{post.message}</Typography>
             </CardContent>
             <CardActions className={classes.cardActions}>
-                <Button size="small" color="primary" onClick={()=>{}}>
+                <Button size="small" color="primary" onClick={()=>{
+                    dispatch(likePost(post._id));
+                }}>
                     <ThumbUpAlt fontSize="small" />
                     &nbsp; Like &nbsp; {post.likeCount}
                 </Button>
