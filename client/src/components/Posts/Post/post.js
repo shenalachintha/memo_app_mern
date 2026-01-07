@@ -2,8 +2,11 @@ import React from "react";
 import { Card,CardActions,CardContent,CardMedia,Button,Typography } from "@material-ui/core";
 import {ThumbUpAlt,Delete,MoreHoriz} from "@material-ui/icons";
 import useStyles from "./styles.js";
+import { useDispatch } from "react-redux";
+import { deletePost } from "../../../actions/posts.js";
 const Post=({post,setCurrentId})=>{
     const classes=useStyles();
+    const dispatch=useDispatch();
     return(
        <Card className={classes.card} > 
          {/* Use styled media class so the image has height */}
@@ -31,7 +34,9 @@ const Post=({post,setCurrentId})=>{
                     <ThumbUpAlt fontSize="small" />
                     &nbsp; Like &nbsp; {post.likeCount}
                 </Button>
-                <Button size="small" color="primary" onClick={()=>{}}>
+                <Button size="small" color="primary" onClick={()=>{
+                    dispatch(deletePost(post._id));
+                }}>
                     <Delete fontSize="small" />
                     Delete
                 </Button>
