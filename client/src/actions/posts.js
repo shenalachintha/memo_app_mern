@@ -36,3 +36,11 @@ import * as api from '../api/index.js';
             console.log(error.message);
         }   
     }
+    export const likePost=(id)=>async(dispatch)=>{
+        try {
+            const {data}=await api.likePost(id);
+            dispatch({type:'UPDATE',payload:data});
+        } catch (error) {
+            console.log(error);
+        }   
+    }
