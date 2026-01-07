@@ -1,13 +1,24 @@
-import React ,{useState}from "react";
+import React ,{useState,useEffect}from "react";
 import Usestyles from './styles.js';
 import { TextField,Button,Typography,Paper } from "@material-ui/core";
 import FileBase from 'react-file-base64';
 import { useDispatch } from "react-redux";
 import { createPost } from "../../actions/posts.js";
 import { updatePost } from "../../actions/posts.js";
+import { useSelector } from "react-redux";
+
 const Form=({ currentId, setCurrentId })=>{
+    const [postData,setPostData]=useState({
+        creator:'',title:'',message:'',tags:'',selectedFile:''              
+    });
+    const post = useSelector((state) => (currentId ? state.posts.find((message) => message._id === currentId) : null));
     const classes=Usestyles();
     const dispatch=useDispatch();
+
+    useEffect(() => {
+        if (post) setPostData(post);
+      }, [post]);
+
     const handleSubmit=(e)=>{
         e.preventDefault();
         if(currentId){
@@ -17,11 +28,11 @@ const Form=({ currentId, setCurrentId })=>{
         }
        
     }
+
+
     const clear=()=>{
     }
-    const [postData,setPostData]=useState({
-        creator:'',title:'',message:'',tags:'',selectedFile:''              
-    });
+ 
     return(
        <Paper className={classes.paper}>
         <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
