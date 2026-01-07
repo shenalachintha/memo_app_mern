@@ -1,5 +1,6 @@
 // Explicit .js extension required for ESM imports in Node
 import PostMessage from "../models/postMessage.js";    
+import mongoose from "mongoose";
 
 const getposts =  async (req, res) => {
     try {

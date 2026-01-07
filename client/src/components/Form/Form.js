@@ -27,18 +27,20 @@ const Form=({ currentId, setCurrentId })=>{
             dispatch(createPost(postData));
         }
         clear();
+      
     }
 
 
     const clear=()=>{
-        setPostData({ creator:'',title:'',message:'',tags:'',selectedFile:'' });
         setCurrentId(null);
+        setPostData({ creator: '', title: '', message: '', tags: '', selectedFile: '' });
+      
     }
  
     return(
        <Paper className={classes.paper}>
         <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-            <Typography variant="h6">Creating a Memo</Typography>
+            <Typography variant="h6">{currentId ? 'Editing' : 'Creating'} a Memo</Typography>
           <TextField
               name="creator"
                 variant="outlined"
